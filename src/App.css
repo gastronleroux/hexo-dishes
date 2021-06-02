@@ -6,7 +6,10 @@
   align-items: center;
 }
 .App>form{
+  padding:20px;
   text-align:center;
+  border-radius: 10px;
+  box-shadow: rgb(184, 184, 184) 0px 4px 10px 1px;
 }
 .App>form>*{
   margin-bottom:10px;
