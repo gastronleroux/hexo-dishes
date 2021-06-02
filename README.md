@@ -10,8 +10,8 @@ Simple form app using react, redux-forms and material-ui.
 
 App created based on:
 
-*Node v13.14.0
-*npm 6.14.4
+* Node v13.14.0
+* npm 6.14.4
 
 
 ## Installation and Setup Instructions
