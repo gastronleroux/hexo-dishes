@@ -4,7 +4,8 @@ Simple form app using react, redux-forms and material-ui.
 
 ## Installation and Setup Instructions
 
-You will need to clone the repository. You'll also need `node` and `npm` installed globally on your machine.
+1. Clone the repository.
+2. If You haven't done so already, install `node` and `npm` globally on your machine.
 
 Installation process:
 
@@ -14,7 +15,7 @@ npm install
 yarn install
 ```
 
-To Start Server:
+To start the server:
 
 ```
 npm start
@@ -22,6 +23,6 @@ npm start
 yarn start
 ```
 
-To Visit App:
+To open the app in browser:
 
 `localhost:3000`  
