@@ -2,52 +2,25 @@ import React, { useState } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import FormHelperText from '@material-ui/core/FormHelperText'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import InputLabel from '@material-ui/core/InputLabel'
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 import InputMask from 'react-input-mask';
+import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
+import dishesFields from './dishesFields';
+import submit from './dishesSubmit';
 
-const requiredFieldsBase = [
-  'name',
-  'preparation_time',
-  'type'
-];
-
-const requiredFieldsType = {
-  '': [],
-  'pizza': [
-    'no_of_slices',
-    'diameter',
-  ],
-  'soup': [
-    'spiciness_scale',
-  ],
-  'sandwich': [
-    'slices_of_bread',
-  ],
-}
 
 // Validation of inputs
 const validate = values => {
   const errors = {};
-  let requiredFields;
-  if(!!values.type){
-    requiredFields = [
-      ...requiredFieldsBase,
-      ...requiredFieldsType[values.type]
-    ];
-  }else{
-    requiredFields = requiredFieldsBase;
-  }
-  
-
-  requiredFields.forEach(field => {
+  dishesFields(values.type).forEach(field => {
     if (!values[field]) {
       errors[field] = 'Required'
     }
   });
-
   return errors;
 };
 
@@ -131,10 +104,32 @@ const renderSelectField = ({
   </FormControl>
 )
 
+// Slider field
+const renderSliderField = ({
+  input,
+  label,
+  InputProps,
+  ...custom
+}) => (
+  <div>
+    <Typography gutterBottom>
+      {label}
+    </Typography>
+    <Slider
+      valueLabelDisplay="auto"
+      value={input.value}
+      onChange={(e, val) => input.onChange(val)}
+      {...InputProps}
+      {...custom}
+    />
+  </div>
+)
+
+
 
 //Dishes form component
 let DishesForm = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, submitting } = props;
   const [dishType, setDishType] = useState('');
 
   function handleChangeDishType(event){
@@ -142,7 +137,7 @@ let DishesForm = props => {
   }
 
   return (
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit(submit)}>
     <div>
       <Field
           name="name"
@@ -195,16 +190,36 @@ let DishesForm = props => {
                 />
               </div>
             </>;
-          if (false)
-             return <span>Two</span>
-          if (false)
-             return <span>Three</span>
+          if (dishType==='soup')
+            return <>
+              <div>
+                <Field
+                    name="spiciness_scale"
+                    component={renderSliderField}
+                    label="Spiciness scale"
+                    InputProps={{min: 1, max: 10, step: 1}}
+                />
+              </div>
+            </>;
+          if (dishType==='sandwich')
+          return <>
+          <div>
+            <Field
+                name="slices_of_bread"
+                component={renderTextField}
+                label="Number of slices"
+                type="number"
+                InputProps={{ inputProps: { min: 0 } }}
+            />
+          </div>
+        </>;
       })()
     }
     <Button
       variant="contained"
       color="primary"
       type="submit"
+      disabled={submitting}
     >
       Submit
     </Button>
@@ -214,7 +229,10 @@ let DishesForm = props => {
 
 DishesForm = reduxForm({
   form: 'dishes',
-  validate
+  initialValues: {
+    spiciness_scale: 1,
+  },
+  validate,
 })(DishesForm);
 
 export default DishesForm;
