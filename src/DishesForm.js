@@ -9,6 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputMask from 'react-input-mask';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import dishesFields from './dishesFields';
 import submit from './dishesSubmit';
 
@@ -160,6 +161,7 @@ let DishesForm = props => {
           name="type"
           component={renderSelectField}
           label="Dish type"
+          id="dishTypeField"
           onChange={handleChangeDishType}
         >
           <option />
@@ -168,6 +170,7 @@ let DishesForm = props => {
           <option value={'sandwich'}>Sandwich</option>
         </Field>
     </div>
+    <Divider light/>
     {
       (() => {
           if (dishType==='pizza')
