@@ -1,17 +1,14 @@
 ## Hexo-dishes
 
 Simple form app using react, redux-forms and material-ui.
+Created based on:
+
+* Node v13.14.0
+* npm 6.14.4
 
 ## Live preview
 
 [Visit here](https://gastronleroux.github.io/hexo-dishes-page/) for the live preview of the app.
-
-## Tech info
-
-App created based on:
-
-* Node v13.14.0
-* npm 6.14.4
 
 
 ## Installation and Setup Instructions
