@@ -6,6 +6,14 @@ Simple form app using react, redux-forms and material-ui.
 
 [Visit here](https://gastronleroux.github.io/hexo-dishes-page/) for the live preview of the app.
 
+## Tech info
+
+App created based on:
+
+*Node v13.14.0
+*npm 6.14.4
+
+
 ## Installation and Setup Instructions
 
 1. Clone the repository.
