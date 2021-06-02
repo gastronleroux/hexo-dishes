@@ -46,7 +46,8 @@ const renderTextField = ({
     type={type}
     error={touched && invalid}
     helperText={touched && error}
-    {...input}
+    value={input.value}
+    onChange={(e) => type==="number" ? input.onChange(Number(e.target.value)) : input.onChange(e.target.value)}
     {...custom}
   />
 );
