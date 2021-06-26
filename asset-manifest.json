@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/hexo-dishes/static/css/main.03f1e133.chunk.css",
+    "main.js": "/hexo-dishes/static/js/main.de8e3db2.chunk.js",
+    "main.js.map": "/hexo-dishes/static/js/main.de8e3db2.chunk.js.map",
+    "runtime-main.js": "/hexo-dishes/static/js/runtime-main.bdde93af.js",
+    "runtime-main.js.map": "/hexo-dishes/static/js/runtime-main.bdde93af.js.map",
+    "static/js/2.437eba92.chunk.js": "/hexo-dishes/static/js/2.437eba92.chunk.js",
+    "static/js/2.437eba92.chunk.js.map": "/hexo-dishes/static/js/2.437eba92.chunk.js.map",
+    "index.html": "/hexo-dishes/index.html",
+    "static/css/main.03f1e133.chunk.css.map": "/hexo-dishes/static/css/main.03f1e133.chunk.css.map",
+    "static/js/2.437eba92.chunk.js.LICENSE.txt": "/hexo-dishes/static/js/2.437eba92.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bdde93af.js",
+    "static/js/2.437eba92.chunk.js",
+    "static/css/main.03f1e133.chunk.css",
+    "static/js/main.de8e3db2.chunk.js"
+  ]
+}
